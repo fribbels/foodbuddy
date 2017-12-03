@@ -5,6 +5,16 @@ import { Icon } from 'react-native-elements';
 import Restaurants from './restaurants';
 import RestaurantDetails from './restaurantdetails';
 import Dishes from './dishes';
+import Camera from './camera';
+
+export const CameraStack = StackNavigator({
+  CameraStack: {
+    screen: Camera,
+    navigationOptions: {
+      title: 'Camera',
+    },
+  },
+});
 
 export const RestaurantsStack = StackNavigator({
   Restaurants: {
@@ -45,6 +55,13 @@ export const Tabs = TabNavigator({
       tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
     },
   },
+  Camra: {
+    screen: CameraStack,
+    navigationOptions: {
+      tabBarLabel: 'Camera',
+      tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+    },
+  }
 });
 
 export const Root = StackNavigator({

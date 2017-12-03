@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { AppRegistry, ScrollView } from 'react-native';
 import { Tile, List, ListItem } from 'react-native-elements';
 
-var exampleRestaurant = {
-  image: "https://www.omnihotels.com/-/media/images/hotels/bospar/restaurants/bospar-omni-parker-house-parkers-restaurant-1170.jpg",
-  name: "Restaurant",
-  caption: "Caption",
-  data: "Data"
-};
+import { PhotoGrid } from './PhotoGrid';
+const Cloud = require('./cloud');
+var photos = []
 
 class RestaurantDetails extends Component {
   render() {
+    var restaurantData = this.props.navigation.state.params.data;
+
+    for (var i = 0; i < 20; i++) {
+      photos.push({'url': restaurantData.img_url});
+    }
+
+    // var detailedData = Cloud.getRestaurantDetails(restaurantData.id);
+    // console.log(detailedData);
+
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri: exampleRestaurant.image}}
+          imageSrc={{ uri: restaurantData.img_url}}
           featured
-          title={exampleRestaurant.name}
-          caption={exampleRestaurant.caption}
+          title={restaurantData.name}
+          caption={restaurantData.categories.join(", ")}
         />
 
         <List>
           <ListItem
             title="Data"
-            rightTitle={exampleRestaurant.data}
+            rightTitle={restaurantData.data}
             hideChevron
           />
           <ListItem
             title="Data"
-            rightTitle={exampleRestaurant.data}
+            rightTitle={restaurantData.data}
             hideChevron
           />
         </List>
+
+
+        <ScrollView>
+          <PhotoGrid PhotosList={photos} borderRadius={10}/>
+        </ScrollView>
       </ScrollView>
     );
   }

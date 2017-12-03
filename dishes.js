@@ -10,7 +10,6 @@ var exampleDish = {
 };
 
 class Dishes extends Component {
-
   render() {
     return (
       <ScrollView>
