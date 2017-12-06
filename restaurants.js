@@ -153,6 +153,7 @@ class Restaurants extends Component {
         key="sdf"
         contentContainerStyle={styles.contentContainer}
         dataSource={this.state.dataSource}
+        enableEmptySections={true}
         renderRow={(props) => 
           <TouchableHighlight onPress={() => {this.onClick(props)}}>
             <View style={styles.container}>

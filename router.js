@@ -5,18 +5,18 @@ import { Icon } from 'react-native-elements';
 import Restaurants from './restaurants';
 import RestaurantDetails from './restaurantdetails';
 import Dishes from './dishes';
-import Camera from './camera';
+import CameraScreen  from './camera';
 
 export const CameraStack = StackNavigator({
   CameraStack: {
-    screen: Camera,
+    screen: CameraScreen ,
     navigationOptions: {
       title: 'Camera',
     },
   },
 });
 
-export const RestaurantsStack = StackNavigator({
+export const Root = StackNavigator({
   Restaurants: {
     screen: Restaurants,
     navigationOptions: {
@@ -25,9 +25,15 @@ export const RestaurantsStack = StackNavigator({
   },
   Details: {
     screen: RestaurantDetails,
-    navigationOptions: ({ navigation }) => ({
-      title: navigation.state.params.name
-    }),
+    navigationOptions: {
+      title: 'Details',
+    },
+  },
+  Camera: {
+    screen: CameraScreen,
+    navigationOptions:{
+      title: 'Camera',
+    },
   },
 });
 
@@ -40,35 +46,35 @@ export const DishesStack = StackNavigator({
   }, 
 });
 
-export const Tabs = TabNavigator({
-  Restaurants: {
-    screen: RestaurantsStack,
-    navigationOptions: {
-      tabBarLabel: 'Restaurants',
-      tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />,
-    },
-  },
-  Dishes: {
-    screen: DishesStack,
-    navigationOptions: {
-      tabBarLabel: 'Dishes',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
-    },
-  },
-  Camra: {
-    screen: CameraStack,
-    navigationOptions: {
-      tabBarLabel: 'Camera',
-      tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
-    },
-  }
-});
+// export const Tabs = TabNavigator({
+//   Restaurants: {
+//     screen: RestaurantsStack,
+//     navigationOptions: {
+//       tabBarLabel: 'Restaurants',
+//       tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />,
+//     },
+//   },
+//   Dishes: {
+//     screen: DishesStack,
+//     navigationOptions: {
+//       tabBarLabel: 'Dishes',
+//       tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+//     },
+//   },
+//   Camera: {
+//     screen: CameraStack,
+//     navigationOptions: {
+//       tabBarLabel: 'Camera',
+//       tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+//     },
+//   }
+// });
 
-export const Root = StackNavigator({
-  Tabs: {
-    screen: Tabs,
-  },
-}, {
-  mode: 'modal',
-  headerMode: 'none',
-});
+// export const Root = StackNavigator({
+//   Tabs: {
+//     screen: Tabs,
+//   },
+// }, {
+//   mode: 'modal',
+//   headerMode: 'none',
+// });

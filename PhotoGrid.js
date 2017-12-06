@@ -2,7 +2,7 @@
  * Created by Sivaraj Nagaraj
  */
 import React, { Component } from 'react';
-import { View, Image, Dimensions, Modal, TouchableOpacity } from 'react-native';
+import { View, Image, Dimensions, Modal, Text, TouchableOpacity } from 'react-native';
 import * as _ from 'lodash';
 
 class PhotoGrid extends Component {
@@ -62,7 +62,9 @@ class PhotoGrid extends Component {
                             return (
                                 <View key={index} style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                                     <TouchableOpacity onPress={() => { this.photoPopupToggle(item.url) }}>
-                                        <Image source={{ uri: item.url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                        <Image source={{ uri: item.url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} >
+                                            <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{item.name}</Text>
+                                        </Image>
                                     </TouchableOpacity>
                                 </View>
                             )
@@ -81,7 +83,9 @@ class PhotoGrid extends Component {
                 <View key={row[0].url} style={styles.alignCenter}>
                     <View key={row[0].url} style={[styles.expandedView, { borderRadius: this.props.borderRadius }]}>
                         <TouchableOpacity onPress={() => { this.photoPopupToggle(row[0].url) }}>
-                            <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]} />
+                            <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]}> 
+                                <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[0].name}</Text>
+                            </Image>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -92,13 +96,17 @@ class PhotoGrid extends Component {
                 <View key={row[0].url} style={styles.alignCenter}>
                     <View key={row[0].url} style={[styles.expandedView, { borderRadius: this.props.borderRadius }]}>
                         <TouchableOpacity onPress={() => { this.photoPopupToggle(row[0].url) }}>
-                            <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]} />
+                            <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]}>
+                                <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[0].name}</Text>
+                            </Image>
                         </TouchableOpacity>
                     </View>
                     <View key={row[1].url} style={styles.flexCol}>
                         <View style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[1].url) }}>
-                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[1].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -111,18 +119,24 @@ class PhotoGrid extends Component {
                 <View key={row[0].url} style={styles.alignCenter}>
                     <View key={row[0].url} style={[styles.expandedView, { borderRadius: this.props.borderRadius }]}>
                         <TouchableOpacity onPress={() => { this.photoPopupToggle(row[0].url) }}>
-                            <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]} />
+                            <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]}>
+                                <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[0].name}</Text>
+                            </Image>
                         </TouchableOpacity>
                     </View>
                     <View key={row[1].url} style={styles.flexCol}>
                         <View style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[1].url) }}>
-                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[1].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[2].url) }}>
-                                <Image source={{ uri: row[2].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[2].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[2].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -154,12 +168,16 @@ class PhotoGrid extends Component {
                     <View key={row[0].url} style={styles.flexCol}>
                         <View style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[0].url) }}>
-                                <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[0].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                         <View key={row[1].url} style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[1].url) }}>
-                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[1].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -174,18 +192,24 @@ class PhotoGrid extends Component {
                     <View style={styles.flexCol}>
                         <View style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[0].url) }}>
-                                <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[0].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[0].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                         <View style={[styles.photoView, { borderRadius: this.props.borderRadius }]}>
                             <TouchableOpacity onPress={() => { this.photoPopupToggle(row[1].url) }}>
-                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]} />
+                                <Image source={{ uri: row[1].url }} style={[styles.ImageStyle, { borderRadius: this.props.borderRadius }]}>
+                                    <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[1].name}</Text>
+                                </Image>
                             </TouchableOpacity>
                         </View>
                     </View>
                     <View style={[styles.expandedView, { borderRadius: this.props.borderRadius }]}>
                         <TouchableOpacity onPress={() => { this.photoPopupToggle(row[2].url) }}>
-                            <Image source={{ uri: row[2].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]} />
+                            <Image source={{ uri: row[2].url }} style={[styles.ImageStyle, styles.expandedImage, { borderRadius: this.props.borderRadius }]}>
+                                <Text style={{textAlign: 'center', backgroundColor: 'rgba(0,0,0,0)', position: 'absolute', bottom:0, left:0, right:0,fontSize: 10, fontWeight: 'bold', textShadowRadius:3, textShadowOffset:{width:0.5, height:0.5}, color:'black', textShadowColor:'white'}}>{row[2].name}</Text>
+                            </Image>
                         </TouchableOpacity>
                     </View>
                 </View>
